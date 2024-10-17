@@ -1,9 +1,17 @@
 .container {
-  margin-top: 20px;
   display: flex;
+  margin-top: 20px;
+  width: 700px;
+  justify-content: space-between;
 }
 
 .header {
   font-weight: 600;
   font-size: 13px;
+}
+
+.input-component {
+  label {
+    font-size: 10px;
+  }
 }
