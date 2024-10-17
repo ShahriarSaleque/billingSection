@@ -22,10 +22,14 @@ function App() {
           cvv: '',
           email: '',
           country: '',
+          address: '',
+          city: '',
+          state: '',
+          zip: '',
         }}
         validationSchema={billingValidationSchema}
         onSubmit={(values) => {
-          console.log('values', values);
+          console.log('val', values);
         }}
       >
         {({ errors, touched }) => (
@@ -43,6 +47,8 @@ function App() {
             </div>
 
             <AddressDetails errors={errors} touched={touched} />
+
+            <button type='submit'>Save changes</button>
           </Form>
         )}
       </Formik>

@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+    margin-top: 20px;
+    gap: 400px;
+  }
+  
+  .header {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 24px;
+    color: #171717;
+  }
+  
+  .input-component {
+    margin-bottom: 10px;
+  
+    label {
+      font-size: 10px;
+      line-height: 20px;
+      font-weight: 400;
+      color: #171717;
+    }
+  
+    input {
+      font-size: 9px;
+      background-color: #fafafa;
+      border: 1px solid #e5e5e5;
+      width: 30vw;
+      height: 20px;
+      border-radius: 4px;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+      padding-left: 11px;
+      padding-bottom: 3px;
+  
+      &::placeholder {
+        color: #737373;
+        font-size: 9px;
+      }
+  
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+  
+  .expiry-cvv-container {
+    display: flex;
+    gap: 3.6vw;
+  
+    .expiry-input {
+      input {
+        width: 10vw !important;
+      }
+    }
+  
+    .cvv-input {
+      input {
+        width: 15vw !important;
+      }
+    }
+  }
+  

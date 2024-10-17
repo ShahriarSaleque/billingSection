@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './PaymentDetailsContainer.module.scss';
+import styles from '../ComponentStyling.module.scss';
 import PaymentForm from './PaymentForm';
 
 const PaymentDetails = ({ errors, touched }: PaymentDetailsProps) => {

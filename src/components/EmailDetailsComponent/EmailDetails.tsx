@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../PaymentDetailsComponent/PaymentDetailsContainer.module.scss';
+import styles from '../ComponentStyling.module.scss';
 import { Field } from 'formik';
 
 const EmailDetails = ({ errors, touched }: EmailDetailsProps) => {

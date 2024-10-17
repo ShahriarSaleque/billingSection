@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field } from 'formik';
-import styles from './PaymentDetailsContainer.module.scss';
+import styles from '../ComponentStyling.module.scss';
 
 const PaymentForm = ({ errors, touched }: PaymentFormProps) => {
   return (
