@@ -21,3 +21,20 @@
     margin: 15px 0;
   }
 }
+
+.primary-btn {
+  margin-top: 10px;
+  display: flex;
+  justify-content: end;
+  width: 910px;
+
+  button {
+    cursor: pointer;
+    padding: 7px 7px;
+    background-color: #4338ca;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #4f46e5;
+    font-size: 8px;
+  }
+}

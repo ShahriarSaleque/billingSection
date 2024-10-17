@@ -48,7 +48,9 @@ function App() {
 
             <AddressDetails errors={errors} touched={touched} />
 
-            <button type="submit">Save changes</button>
+            <div className="primary-btn">
+              <button type="submit">Save changes</button>
+            </div>
           </Form>
         )}
       </Formik>
