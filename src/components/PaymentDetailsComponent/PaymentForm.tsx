@@ -26,7 +26,11 @@ const PaymentForm = () => {
               <label htmlFor="cardNumber">Card number</label>
             </div>
             <div>
-              <Field name="cardNumber" type="number" />
+              <Field
+                name="cardNumber"
+                type="number"
+                placeholder="1234 1234 1234 1234"
+              />
             </div>
             {errors.cardNumber && touched.cardNumber ? (
               <div>{errors.cardNumber}</div>
@@ -38,7 +42,7 @@ const PaymentForm = () => {
               <label htmlFor="cardHolderName">Cardholder name</label>
             </div>
             <div>
-              <Field name="cardHolderName" />
+              <Field name="cardHolderName" placeholder="Full name on card" />
             </div>
 
             {errors.cardHolderName && touched.cardHolderName ? (
@@ -46,27 +50,29 @@ const PaymentForm = () => {
             ) : null}
           </div>
 
-          <div className={styles['input-component']}>
-            <div>
-              <label htmlFor="expiryDate">Expiry</label>
+          <div className={styles['expiry-cvv-container']}>
+            <div className={styles['input-component']}>
+              <div>
+                <label htmlFor="expiryDate">Expiry</label>
+              </div>
+              <div>
+                <Field name="expiryDate" placeholder="MM/YY" />
+              </div>
+              {errors.expiryDate && touched.expiryDate ? (
+                <div>{errors.expiryDate}</div>
+              ) : null}
             </div>
-            <div>
-              <Field name="expiryDate" />
-            </div>
-            {errors.expiryDate && touched.expiryDate ? (
-              <div>{errors.expiryDate}</div>
-            ) : null}
-          </div>
 
-          <div className={styles['input-component']}>
-            <div>
-              {' '}
-              <label htmlFor="cvv">Cvv</label>
+            <div className={styles['input-component']}>
+              <div>
+                {' '}
+                <label htmlFor="cvv">Cvv</label>
+              </div>
+              <div>
+                <Field name="cvv" placeholder="123" />
+              </div>
+              {errors.cvv && touched.cvv ? <div>{errors.cvv}</div> : null}
             </div>
-            <div>
-              <Field name="cvv" />
-            </div>
-            {errors.cvv && touched.cvv ? <div>{errors.cvv}</div> : null}
           </div>
         </Form>
       )}
