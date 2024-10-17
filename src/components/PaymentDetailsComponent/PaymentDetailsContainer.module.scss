@@ -1,16 +1,14 @@
 .container {
   display: flex;
   margin-top: 20px;
-  width: 66vw;
-  justify-content: space-between;
+  gap: 400px;
 }
 
 .header {
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 12px;
   line-height: 24px;
   color: #171717;
-  font-weight: 700;
 }
 
 .input-component {
@@ -39,11 +37,25 @@
       font-size: 9px;
     }
 
-    &:focus {
-      border-color: red !important;
+    &:focus-visible {
+      outline: none;
     }
   }
 }
 
 .expiry-cvv-container {
+  display: flex;
+  gap: 3.6vw;
+
+  .expiry-input {
+    input {
+      width: 10vw !important;
+    }
+  }
+
+  .cvv-input {
+    input {
+      width: 15vw !important;
+    }
+  }
 }
