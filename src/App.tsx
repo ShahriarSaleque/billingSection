@@ -6,6 +6,7 @@ import AddressDetails from './components/AddressDetailsComponent/AddressDetails'
 import EmailDetails from './components/EmailDetailsComponent/EmailDetails';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import { validateExpiryDate } from './utils/validateExpiryDate';
 
 const billingValidationSchema = Yup.object().shape({
   cardNumber: Yup.string()
@@ -14,6 +15,14 @@ const billingValidationSchema = Yup.object().shape({
       'Card number must be exactly 16 digits, properly formatted'
     )
     .required('Card number is required'),
+  expiryDate: Yup.string()
+    .matches(/^(0[1-9]|1[0-2])\/\d{2}$/, 'Expiry date must be in MM/YY format')
+    .test(
+      'is-future-date',
+      'Expiry date cannot be in the past',
+      validateExpiryDate
+    )
+    .required('Expiry date is required'),
 });
 
 function App() {

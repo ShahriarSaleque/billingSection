@@ -2,6 +2,7 @@ import React from 'react';
 import { Field } from 'formik';
 import styles from '../ComponentStyling.module.scss';
 import { formatCardNumber } from '../../utils/formatCardNumber';
+import { formatExpiryDate } from '../../utils/formatExpiryDate';
 
 const PaymentForm = ({
   errors,
@@ -23,6 +24,10 @@ const PaymentForm = ({
             }}
             value={values.cardNumber}
             placeholder="1234 1234 1234 1234"
+            style={
+              errors.cardNumber &&
+              touched.cardNumber && { border: '1px solid red' }
+            }
           />
         </div>
         {errors.cardNumber && touched.cardNumber ? (
@@ -49,7 +54,19 @@ const PaymentForm = ({
             <label htmlFor="expiryDate">Expiry</label>
           </div>
           <div className={styles['expiry-input']}>
-            <Field name="expiryDate" placeholder="MM/YY" />
+            <input
+              name="expiryDate"
+              maxLength={5}
+              onChange={(event) => {
+                setFieldValue('expiryDate', formatExpiryDate(event));
+              }}
+              value={values.expiryDate}
+              placeholder="MM/YY"
+              style={
+                errors.expiryDate &&
+                touched.expiryDate && { border: '1px solid red' }
+              }
+            />
           </div>
           {errors.expiryDate && touched.expiryDate ? (
             <div className={styles['errorText']}>{errors.expiryDate}</div>
