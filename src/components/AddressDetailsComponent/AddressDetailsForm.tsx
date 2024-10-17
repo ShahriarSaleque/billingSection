@@ -10,7 +10,7 @@ const AddressDetailsForm = ({ errors, touched }: AddressDetailsFormProps) => {
           <label htmlFor="country">Country / Region</label>
         </div>
         <div>
-          <Field name="country" placeholder="United States" />
+          <Field name="country" placeholder="United States" disabled={true} />
         </div>
         {errors.country && touched.country ? (
           <div className={styles['errorText']}>{errors.country}</div>
@@ -28,6 +28,12 @@ const AddressDetailsForm = ({ errors, touched }: AddressDetailsFormProps) => {
         {errors.address && touched.address ? (
           <div className={styles['errorText']}>{errors.address}</div>
         ) : null}
+      </div>
+
+      <div className={styles['input-component']}>
+        <div>
+          <Field name="street" placeholder="Apartment, suite, etc (optional)" />
+        </div>
       </div>
 
       <div className={styles['expiry-cvv-container']}>
@@ -62,7 +68,7 @@ const AddressDetailsForm = ({ errors, touched }: AddressDetailsFormProps) => {
             <label htmlFor="zip">Zip</label>
           </div>
           <div className={styles['cvv-input']}>
-            <Field name="zip" placeholder="123" />
+            <Field name="zip" placeholder="123" maxLength="5" />
           </div>
           {errors.zip && touched.zip ? (
             <div className={styles['errorText']}>{errors.zip}</div>

@@ -40,7 +40,14 @@ const PaymentForm = ({
           <label htmlFor="cardHolderName">Cardholder name</label>
         </div>
         <div>
-          <Field name="cardHolderName" placeholder="Full name on card" />
+          <Field
+            name="cardHolderName"
+            placeholder="Full name on card"
+            style={
+              errors.cardHolderName &&
+              touched.cardHolderName && { border: '1px solid red' }
+            }
+          />
         </div>
 
         {errors.cardHolderName && touched.cardHolderName ? (
@@ -79,7 +86,12 @@ const PaymentForm = ({
             <label htmlFor="cvv">Cvv</label>
           </div>
           <div className={styles['cvv-input']}>
-            <Field name="cvv" placeholder="123" maxLength="3" />
+            <Field
+              name="cvv"
+              placeholder="123"
+              maxLength="3"
+              style={errors.cvv && touched.cvv && { border: '1px solid red' }}
+            />
           </div>
           {errors.cvv && touched.cvv ? (
             <div className={styles['errorText']}>{errors.cvv}</div>

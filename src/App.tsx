@@ -17,7 +17,7 @@ const billingValidationSchema = Yup.object().shape({
     .required('Card number is required'),
   cardHolderName: Yup.string().required('Card holder name is required'),
   expiryDate: Yup.string()
-    .matches(/^(0[1-9]|1[0-2])\/\d{2}$/, 'Expiry date must be in MM/YY format')
+    .matches(/^(0[1-9]|1[0-2])\/\d{2}$/, 'Enter a valid expiration date')
     .test(
       'is-future-date',
       'Expiry date cannot be in the past',
@@ -27,7 +27,7 @@ const billingValidationSchema = Yup.object().shape({
   cvv: Yup.string().required('CVV is required'),
   email: Yup.string()
     .email('Invalid email')
-    .required('Email address is required'),
+    .required('Please enter a valid email address'),
 });
 
 function App() {
@@ -44,6 +44,7 @@ function App() {
           email: '',
           country: '',
           address: '',
+          street: '',
           city: '',
           state: '',
           zip: '',
