@@ -79,7 +79,7 @@ const PaymentForm = ({
             <label htmlFor="cvv">Cvv</label>
           </div>
           <div className={styles['cvv-input']}>
-            <Field name="cvv" placeholder="123" />
+            <Field name="cvv" placeholder="123" maxLength="3" />
           </div>
           {errors.cvv && touched.cvv ? (
             <div className={styles['errorText']}>{errors.cvv}</div>

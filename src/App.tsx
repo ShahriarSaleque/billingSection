@@ -15,6 +15,7 @@ const billingValidationSchema = Yup.object().shape({
       'Card number must be exactly 16 digits, properly formatted'
     )
     .required('Card number is required'),
+  cardHolderName: Yup.string().required('Card holder name is required'),
   expiryDate: Yup.string()
     .matches(/^(0[1-9]|1[0-2])\/\d{2}$/, 'Expiry date must be in MM/YY format')
     .test(
@@ -23,6 +24,10 @@ const billingValidationSchema = Yup.object().shape({
       validateExpiryDate
     )
     .required('Expiry date is required'),
+  cvv: Yup.string().required('CVV is required'),
+  email: Yup.string()
+    .email('Invalid email')
+    .required('Email address is required'),
 });
 
 function App() {

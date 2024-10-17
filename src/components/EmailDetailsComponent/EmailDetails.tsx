@@ -12,7 +12,13 @@ const EmailDetails = ({ errors, touched }: EmailDetailsProps) => {
             <label htmlFor="email">Email address</label>
           </div>
           <div>
-            <Field name="email" placeholder="user@example.com" />
+            <Field
+              name="email"
+              placeholder="user@example.com"
+              style={
+                errors.email && touched.email && { border: '1px solid red' }
+              }
+            />
           </div>
           {errors.email && touched.email ? (
             <div className={styles['errorText']}>{errors.email}</div>
