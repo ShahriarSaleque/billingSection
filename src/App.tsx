@@ -6,8 +6,8 @@ import PaymentDetails from './components/PaymentDetailsComponent/PaymentDetails'
 function App() {
   return (
     <div className="container">
-        <HeaderComponent />
-        <PaymentDetails />
+      <HeaderComponent />
+      <PaymentDetails />
     </div>
   );
 }
