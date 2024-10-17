@@ -12,7 +12,9 @@ const AddressDetailsForm = ({ errors, touched }: AddressDetailsFormProps) => {
         <div>
           <Field name="country" placeholder="United States" />
         </div>
-        {errors.country && touched.country ? <div>{errors.country}</div> : null}
+        {errors.country && touched.country ? (
+          <div className={styles['errorText']}>{errors.country}</div>
+        ) : null}
       </div>
 
       <div className={styles['input-component']}>
@@ -23,7 +25,9 @@ const AddressDetailsForm = ({ errors, touched }: AddressDetailsFormProps) => {
           <Field name="address" placeholder="Street address" />
         </div>
 
-        {errors.address && touched.address ? <div>{errors.address}</div> : null}
+        {errors.address && touched.address ? (
+          <div className={styles['errorText']}>{errors.address}</div>
+        ) : null}
       </div>
 
       <div className={styles['expiry-cvv-container']}>
@@ -34,7 +38,9 @@ const AddressDetailsForm = ({ errors, touched }: AddressDetailsFormProps) => {
           <div className={styles['expiry-input']}>
             <Field name="city" placeholder="City" />
           </div>
-          {errors.city && touched.city ? <div>{errors.city}</div> : null}
+          {errors.city && touched.city ? (
+            <div className={styles['errorText']}>{errors.city}</div>
+          ) : null}
         </div>
 
         <div className={styles['input-component']}>
@@ -45,7 +51,9 @@ const AddressDetailsForm = ({ errors, touched }: AddressDetailsFormProps) => {
           <div className={styles['cvv-input']}>
             <Field name="state" placeholder="State" />
           </div>
-          {errors.state && touched.state ? <div>{errors.state}</div> : null}
+          {errors.state && touched.state ? (
+            <div className={styles['errorText']}>{errors.state}</div>
+          ) : null}
         </div>
 
         <div className={styles['input-component']}>
@@ -56,7 +64,9 @@ const AddressDetailsForm = ({ errors, touched }: AddressDetailsFormProps) => {
           <div className={styles['cvv-input']}>
             <Field name="zip" placeholder="123" />
           </div>
-          {errors.zip && touched.zip ? <div>{errors.zip}</div> : null}
+          {errors.zip && touched.zip ? (
+            <div className={styles['errorText']}>{errors.zip}</div>
+          ) : null}
         </div>
       </div>
     </>

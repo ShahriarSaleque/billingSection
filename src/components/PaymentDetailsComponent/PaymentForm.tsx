@@ -1,8 +1,14 @@
 import React from 'react';
 import { Field } from 'formik';
 import styles from '../ComponentStyling.module.scss';
+import { formatCardNumber } from '../../utils/formatCardNumber';
 
-const PaymentForm = ({ errors, touched }: PaymentFormProps) => {
+const PaymentForm = ({
+  errors,
+  touched,
+  setFieldValue,
+  values,
+}: PaymentFormProps) => {
   return (
     <>
       <div className={styles['input-component']}>
@@ -10,10 +16,17 @@ const PaymentForm = ({ errors, touched }: PaymentFormProps) => {
           <label htmlFor="cardNumber">Card number</label>
         </div>
         <div>
-          <Field name="cardNumber" placeholder="1234 1234 1234 1234" />
+          <input
+            name="cardNumber"
+            onChange={(event) => {
+              setFieldValue('cardNumber', formatCardNumber(event));
+            }}
+            value={values.cardNumber}
+            placeholder="1234 1234 1234 1234"
+          />
         </div>
         {errors.cardNumber && touched.cardNumber ? (
-          <div>{errors.cardNumber}</div>
+          <div className={styles['errorText']}>{errors.cardNumber}</div>
         ) : null}
       </div>
 
@@ -26,7 +39,7 @@ const PaymentForm = ({ errors, touched }: PaymentFormProps) => {
         </div>
 
         {errors.cardHolderName && touched.cardHolderName ? (
-          <div>{errors.cardHolderName}</div>
+          <div className={styles['errorText']}>{errors.cardHolderName}</div>
         ) : null}
       </div>
 
@@ -39,7 +52,7 @@ const PaymentForm = ({ errors, touched }: PaymentFormProps) => {
             <Field name="expiryDate" placeholder="MM/YY" />
           </div>
           {errors.expiryDate && touched.expiryDate ? (
-            <div>{errors.expiryDate}</div>
+            <div className={styles['errorText']}>{errors.expiryDate}</div>
           ) : null}
         </div>
 
@@ -51,7 +64,9 @@ const PaymentForm = ({ errors, touched }: PaymentFormProps) => {
           <div className={styles['cvv-input']}>
             <Field name="cvv" placeholder="123" />
           </div>
-          {errors.cvv && touched.cvv ? <div>{errors.cvv}</div> : null}
+          {errors.cvv && touched.cvv ? (
+            <div className={styles['errorText']}>{errors.cvv}</div>
+          ) : null}
         </div>
       </div>
     </>
@@ -61,6 +76,12 @@ const PaymentForm = ({ errors, touched }: PaymentFormProps) => {
 type PaymentFormProps = {
   errors: any;
   touched: any;
+  setFieldValue: (
+    field: string,
+    value: any,
+    shouldValidate?: boolean | undefined
+  ) => any;
+  values: any;
 };
 
 export default PaymentForm;

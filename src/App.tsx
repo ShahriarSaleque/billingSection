@@ -7,7 +7,14 @@ import EmailDetails from './components/EmailDetailsComponent/EmailDetails';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 
-const billingValidationSchema = Yup.object().shape({});
+const billingValidationSchema = Yup.object().shape({
+  cardNumber: Yup.string()
+    .matches(
+      /^\d{4} \d{4} \d{4} \d{4}$/,
+      'Card number must be exactly 16 digits, properly formatted'
+    )
+    .required('Card number is required'),
+});
 
 function App() {
   return (
@@ -32,9 +39,14 @@ function App() {
           console.log('val', values);
         }}
       >
-        {({ errors, touched }) => (
+        {({ errors, touched, setFieldValue, values }) => (
           <Form>
-            <PaymentDetails errors={errors} touched={touched} />
+            <PaymentDetails
+              errors={errors}
+              touched={touched}
+              setFieldValue={setFieldValue}
+              values={values}
+            />
 
             <div className="horizontal-rule">
               <hr />

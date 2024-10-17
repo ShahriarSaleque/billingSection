@@ -14,7 +14,9 @@ const EmailDetails = ({ errors, touched }: EmailDetailsProps) => {
           <div>
             <Field name="email" placeholder="user@example.com" />
           </div>
-          {errors.email && touched.email ? <div>{errors.email}</div> : null}
+          {errors.email && touched.email ? (
+            <div className={styles['errorText']}>{errors.email}</div>
+          ) : null}
         </div>
       </div>
     </div>
