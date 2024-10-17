@@ -36,5 +36,13 @@
     border-radius: 5px;
     border: 1px solid #4f46e5;
     font-size: 8px;
+
+    &:hover {
+      background-color: #3730a3;
+    }
+
+    &:focus {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
   }
 }
