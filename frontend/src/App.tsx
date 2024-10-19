@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import axios  from 'axios';
 import HeaderComponent from './components/HeaderComponent/HeaderComponent';
 import PaymentDetails from './components/PaymentDetailsComponent/PaymentDetails';
 import AddressDetails from './components/AddressDetailsComponent/AddressDetails';
@@ -51,7 +52,7 @@ function App() {
         }}
         validationSchema={billingValidationSchema}
         onSubmit={(values) => {
-          console.log('val', values);
+          axios.get('http://localhost:8000/api/data').then((res) => console.log('res', res));
         }}
       >
         {({ errors, touched, setFieldValue, values }) => (
