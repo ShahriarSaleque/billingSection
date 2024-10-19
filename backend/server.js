@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const processApiRequest = require('./processApiRequest');
 const PORT = 8000; 
 
 const app = express(); 
@@ -8,11 +9,11 @@ const app = express();
 app.use(cors({
     origin: 'http://localhost:3000',
 }));
-  
+
+// Middleware to parse JSON bodies from incoming requests
+app.use(express.json());
 
 // end-point 
-app.get('/api/data', (req, res) => {
-    res.json({message: 'Express get end point'});
-})
+app.post('/api/data', processApiRequest);
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

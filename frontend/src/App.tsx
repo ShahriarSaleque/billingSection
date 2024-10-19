@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import axios  from 'axios';
 import HeaderComponent from './components/HeaderComponent/HeaderComponent';
 import PaymentDetails from './components/PaymentDetailsComponent/PaymentDetails';
 import AddressDetails from './components/AddressDetailsComponent/AddressDetails';
@@ -8,6 +7,7 @@ import EmailDetails from './components/EmailDetailsComponent/EmailDetails';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { validateExpiryDate } from './utils/validateExpiryDate';
+import { saveInformation } from './utils/saveInformation';
 
 const billingValidationSchema = Yup.object().shape({
   cardNumber: Yup.string()
@@ -52,7 +52,7 @@ function App() {
         }}
         validationSchema={billingValidationSchema}
         onSubmit={(values) => {
-          axios.get('http://localhost:8000/api/data').then((res) => console.log('res', res));
+          saveInformation(values);
         }}
       >
         {({ errors, touched, setFieldValue, values }) => (
