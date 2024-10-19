@@ -52,7 +52,7 @@ function App() {
         }}
         validationSchema={billingValidationSchema}
         onSubmit={(values) => {
-          saveInformation(values);
+          saveInformation({...values, country: 'United States'});
         }}
       >
         {({ errors, touched, setFieldValue, values }) => (
